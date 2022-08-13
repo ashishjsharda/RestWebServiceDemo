@@ -1,18 +1,15 @@
 package controller;
-
-
 import model.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 public class ProductServiceController {
 
-    private static Map<String, Product> productRepo = new HashMap<>();
+    private  static Map<String, Product> productRepo = new HashMap<>();
     static {
         Product product1 = new Product();
         product1.setName("Product 1");
