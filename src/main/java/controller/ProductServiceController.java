@@ -1,4 +1,29 @@
 package controller;
 
+
+import model.Product;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProductServiceController {
+
+    private static Map<String, Product> productRepo = new HashMap<>();
+    static {
+        Product product1 = new Product();
+        product1.setName("Product 1");
+        product1.setId("1");
+        product1.setPrice("100");
+        productRepo.put(product1.getId(), product1);
+        Product product2 = new Product();
+        product2.setName("Product 2");
+        product2.setId("2");
+        product2.setPrice("200");
+        productRepo.put(product2.getId(), product2);
+        Product product3 = new Product();
+        product3.setName("Product 3");
+        product3.setId("3");
+        product3.setPrice("300");
+        productRepo.put(product3.getId(), product3);
+    }
 }
