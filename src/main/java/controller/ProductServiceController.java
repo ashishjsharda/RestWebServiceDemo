@@ -2,6 +2,9 @@ package controller;
 
 
 import model.Product;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,5 +28,10 @@ public class ProductServiceController {
         product3.setId("3");
         product3.setPrice("300");
         productRepo.put(product3.getId(), product3);
+    }
+
+    @RequestMapping(value = "/products/" , method = RequestMethod.GET)
+    public ResponseEntity<Object> getProduct(String id) {
+        return new ResponseEntity<>(productRepo.values(), null, 200);
     }
 }
