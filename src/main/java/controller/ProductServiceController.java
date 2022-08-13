@@ -2,7 +2,9 @@ package controller;
 
 
 import model.Product;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,5 +35,10 @@ public class ProductServiceController {
     @RequestMapping(value = "/products/" , method = RequestMethod.GET)
     public ResponseEntity<Object> getProduct(String id) {
         return new ResponseEntity<>(productRepo.values(), null, 200);
+    }
+
+    public ResponseEntity<Object> createProduct(@RequestBody Product product) {
+        productRepo.put(product.getId(), product);
+        return new ResponseEntity<>(productRepo.values(), null, HttpStatus.CREATED);
     }
 }
